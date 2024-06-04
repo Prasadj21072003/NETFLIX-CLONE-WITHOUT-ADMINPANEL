@@ -1,0 +1,36 @@
+.watch {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  video {
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid black;
+    object-fit: cover;
+  }
+
+  .back {
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+    left: 40px;
+    color: white;
+    cursor: pointer;
+
+    .backicon {
+      text-decoration: none;
+      color: white;
+    }
+
+    span {
+      text-decoration: none;
+      color: white;
+      position: absolute;
+      top: 2px;
+      left: 24px;
+    }
+  }
+}
