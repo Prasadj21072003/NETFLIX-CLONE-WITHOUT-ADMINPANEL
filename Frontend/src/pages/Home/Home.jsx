@@ -36,6 +36,7 @@ const Home = (type) => {
         );
 
         setlist(res?.data);
+        console.log(res?.data);
       } catch (error) {
         console.log(`the error is: ${error}`);
       }
