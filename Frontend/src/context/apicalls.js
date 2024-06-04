@@ -13,7 +13,7 @@ import { Navigate } from "react-router-dom";
 export const registeruser = async (user, dispatch) => {
   try {
     const resp = await axios.post(
-      "/api/auth/register",
+      "https://netflix-clone-without-adminpanel-api.vercel.app/api/auth/register",
       user,
 
       {
@@ -37,7 +37,7 @@ export const registeruser = async (user, dispatch) => {
 export const loginuser = async (user, dispatch) => {
   try {
     const resp = await axios.post(
-      "/api/auth/login",
+      "https://netflix-clone-without-adminpanel-api.vercel.app//api/auth/login",
       user,
 
       {

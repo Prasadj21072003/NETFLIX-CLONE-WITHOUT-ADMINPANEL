@@ -25,7 +25,9 @@ export default function Featured(props) {
     const getfeaturedmovie = async () => {
       try {
         const res = await axios.get(
-          `/Movie/${props.type ? "?type=" + props.type : ""}`,
+          `https://netflix-clone-without-adminpanel-api.vercel.app/Movie/${
+            props.type ? "?type=" + props.type : ""
+          }`,
           {
             headers: {
               token:

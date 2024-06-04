@@ -23,12 +23,15 @@ export default function Listitems(item) {
   useEffect(() => {
     const getlistitem = async () => {
       try {
-        const res = await axios.get(`/Movie/${movieid}`, {
-          headers: {
-            token:
-              "bearer " + JSON.parse(localStorage.getItem("user")).acesstoken,
-          },
-        });
+        const res = await axios.get(
+          `https://netflix-clone-without-adminpanel-api.vercel.app/Movie/${movieid}`,
+          {
+            headers: {
+              token:
+                "bearer " + JSON.parse(localStorage.getItem("user")).acesstoken,
+            },
+          }
+        );
 
         if (res.data === "Token is not valid") {
           tokennotvalid();
