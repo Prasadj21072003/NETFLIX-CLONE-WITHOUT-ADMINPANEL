@@ -37,7 +37,7 @@ export const registeruser = async (user, dispatch) => {
 export const loginuser = async (user, dispatch) => {
   try {
     const resp = await axios.post(
-      "https://netflix-clone-without-adminpanel-api.vercel.app//api/auth/login",
+      "https://netflix-clone-without-adminpanel-api.vercel.app/api/auth/login",
       user,
 
       {
@@ -47,7 +47,7 @@ export const loginuser = async (user, dispatch) => {
         },
       }
     );
-    // console.log(resp);
+    console.log(resp?.data);
     dispatch(loginsuccess(resp?.data));
   } catch (error) {
     dispatch(loginfailure());

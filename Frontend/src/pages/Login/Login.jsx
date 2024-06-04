@@ -24,9 +24,9 @@ export default function Login() {
     e.preventDefault();
     loginuser(user, dispatch);
 
-    navigate("/home");
+    // navigate("/");
 
-    window.location.reload();
+    // window.location.reload();
   };
 
   return (

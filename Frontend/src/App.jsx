@@ -10,11 +10,11 @@ import { Logincontext } from "./context/usercontext";
 
 const App = () => {
   const { user } = useContext(Logincontext);
-
+  console.log(user);
   return (
     <Router>
       <Routes>
-        <Route path="/home" element={user ? <Home /> : <Register />} />
+        <Route path="/" element={user ? <Home /> : <Register />} />
 
         <Route
           path="/movies"
