@@ -26,7 +26,7 @@ export default function Login() {
 
     navigate("/");
 
-    window.location.reload();
+    //window.location.reload();
   };
 
   return (
