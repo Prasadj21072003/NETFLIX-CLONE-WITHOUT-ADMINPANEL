@@ -35,7 +35,7 @@ const Home = (type, acesstoken) => {
         );
 
         setlist(res?.data);
-        //  console.log(res?.data);
+        console.log(acesstoken);
       } catch (error) {
         console.log(`the error is: ${error}`);
       }
