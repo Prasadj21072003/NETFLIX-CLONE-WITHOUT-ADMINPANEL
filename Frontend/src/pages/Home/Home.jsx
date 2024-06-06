@@ -5,13 +5,13 @@ import List from "../../components/list/List";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { Logincontext } from "../../context/usercontext";
-const apidata = "list/";
+const apidata = "https://netflix-clone-without-adminpanel-api.vercel.app/list/";
 
-const Home = (type) => {
+const Home = (type, acesstoken) => {
   const [lists, setlist] = useState([]);
   const [genredata, setgenredata] = useState(null);
   const { user } = useContext(Logincontext);
-
+  console.log(user?.acesstoken);
   const [genre, setgenre] = useState(null);
 
   const newgenre = (data) => {
