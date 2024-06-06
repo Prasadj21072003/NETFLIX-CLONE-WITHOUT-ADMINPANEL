@@ -3,12 +3,14 @@ import Navbar from "../../components/navbar/Navbar";
 import Featured from "../../components/Featured picture/Featured";
 import List from "../../components/list/List";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { Logincontext } from "../../context/usercontext";
 const apidata = "list/";
 
 const Home = (type) => {
   const [lists, setlist] = useState([]);
   const [genredata, setgenredata] = useState(null);
+  const { user } = useContext(Logincontext);
 
   const [genre, setgenre] = useState(null);
 
@@ -29,13 +31,13 @@ const Home = (type) => {
           }`,
           {
             headers: {
-              token: "bearer " + acesstoken,
+              token: "bearer " + user?.acesstoken,
             },
           }
         );
 
         setlist(res?.data);
-        console.log(acesstoken);
+        console.log(user?.acesstoken);
       } catch (error) {
         console.log(`the error is: ${error}`);
       }
