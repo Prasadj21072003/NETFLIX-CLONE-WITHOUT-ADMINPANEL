@@ -6,7 +6,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 const apidata = "list/";
 
-const Home = (type, acesstoken) => {
+const Home = (type) => {
   const [lists, setlist] = useState([]);
   const [genredata, setgenredata] = useState(null);
 
