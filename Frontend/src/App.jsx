@@ -14,19 +14,39 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={user ? <Home /> : <Register />} />
+        <Route
+          path="/"
+          element={user ? <Home acesstoken={user?.acesstoken} /> : <Register />}
+        />
 
         <Route
           path="/movies"
-          element={user ? <Home type="Movie" /> : <Register />}
+          element={
+            user ? (
+              <Home type="Movie" acesstoken={user?.acesstoken} />
+            ) : (
+              <Register />
+            )
+          }
         />
 
         <Route
           path="/series"
-          element={user ? <Home type="series" /> : <Register />}
+          element={
+            user ? (
+              <Home type="series" acesstoken={user?.acesstoken} />
+            ) : (
+              <Register />
+            )
+          }
         />
 
-        <Route path="/watch" element={user ? <Watch /> : <Register />} />
+        <Route
+          path="/watch"
+          element={
+            user ? <Watch acesstoken={user?.acesstoken} /> : <Register />
+          }
+        />
 
         <Route path="/register" element={<Register />} />
 

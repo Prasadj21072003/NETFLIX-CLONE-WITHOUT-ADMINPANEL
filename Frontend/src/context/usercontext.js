@@ -1,5 +1,7 @@
-import { createContext, useReducer, useEffect } from "react";
+import { createContext, useReducer, useEffect, useState } from "react";
 import { Loginreducer } from "./userreducer";
+
+var newuser;
 
 const initial_state = {
   user: JSON.parse(localStorage.getItem("user")) || null,
@@ -7,7 +9,7 @@ const initial_state = {
   isfetching: false,
   error: false,
 };
-
+//JSON.parse(localStorage.getItem("user"))
 export const Logincontext = createContext();
 
 export const LoginProvider = ({ children }) => {

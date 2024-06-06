@@ -3,13 +3,14 @@ import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import AddIcon from "@mui/icons-material/Add";
 import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import ThumbDownOffAltOutlinedIcon from "@mui/icons-material/ThumbDownOffAltOutlined";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import ReactPlayer from "react-player";
 import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { tokennotvalid } from "../../context/useractions";
+import { Logincontext } from "../../context/usercontext";
 
 export default function Listitems(item) {
   const movieid = item.item;
@@ -19,6 +20,7 @@ export default function Listitems(item) {
   const [Movietrailer, setMovietrailer] = useState("");
 
   const [ishover, setishover] = useState(false);
+  const { user } = useContext(Logincontext);
 
   useEffect(() => {
     const getlistitem = async () => {
@@ -27,8 +29,7 @@ export default function Listitems(item) {
           `https://netflix-clone-without-adminpanel-api.vercel.app/Movie/${movieid}`,
           {
             headers: {
-              token:
-                "bearer " + JSON.parse(localStorage.getItem("user")).acesstoken,
+              token: "bearer " + user?.acesstoken,
             },
           }
         );

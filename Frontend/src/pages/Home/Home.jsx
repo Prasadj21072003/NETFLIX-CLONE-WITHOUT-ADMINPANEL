@@ -6,7 +6,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 const apidata = "list/";
 
-const Home = (type) => {
+const Home = (type, acesstoken) => {
   const [lists, setlist] = useState([]);
   const [genredata, setgenredata] = useState(null);
 
@@ -29,14 +29,13 @@ const Home = (type) => {
           }`,
           {
             headers: {
-              token:
-                "bearer " + JSON.parse(localStorage.getItem("user")).acesstoken,
+              token: "bearer " + acesstoken,
             },
           }
         );
 
         setlist(res?.data);
-        console.log(res?.data);
+        //  console.log(res?.data);
       } catch (error) {
         console.log(`the error is: ${error}`);
       }

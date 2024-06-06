@@ -1,16 +1,18 @@
 import "./Featured.scss";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { collapseClasses } from "@mui/material";
 import { tokennotvalid } from "../../context/useractions";
+import { Logincontext } from "../../context/usercontext";
 
 export default function Featured(props) {
   const [Movie, setMovie] = useState([]);
   const [Movieimg, setMovieimg] = useState("");
 
   const [genre, setgenre] = useState(null);
+  const { user } = useContext(Logincontext);
 
   useEffect(() => {
     props.genreis(genre);
@@ -30,8 +32,7 @@ export default function Featured(props) {
           }`,
           {
             headers: {
-              token:
-                "bearer " + JSON.parse(localStorage.getItem("user")).acesstoken,
+              token: "bearer " + user?.acesstoken,
             },
           }
         );
