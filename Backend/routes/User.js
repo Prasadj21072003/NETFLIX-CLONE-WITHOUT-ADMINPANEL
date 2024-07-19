@@ -95,6 +95,4 @@ router.get("/", verify, async (req, res) => {
   }
 });
 
-//get user stats
-
 module.exports = router;

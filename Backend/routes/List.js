@@ -75,15 +75,11 @@ router.get("/", async (req, res) => {
     console.log(typequery);
     if (genrequery) {
       if (genrequery === "Genre") {
-        const list = await List.aggregate([
-          //   { $sample: { size: 4 } },
-          { $match: { type: typequery } },
-        ]);
+        const list = await List.aggregate([{ $match: { type: typequery } }]);
 
         return res.json(list);
       } else {
         const list = await List.aggregate([
-          //   { $sample: { size: 4 } },
           { $match: { type: typequery, genre: genrequery } },
         ]);
         return res.json(list);

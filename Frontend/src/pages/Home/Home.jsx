@@ -1,10 +1,11 @@
 import "./Home.scss";
 import Navbar from "../../components/navbar/Navbar";
 import Featured from "../../components/Featured picture/Featured";
-import List from "../../components/list/List";
+//import List from "../../components/list/List";
 import axios from "axios";
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, Suspense } from "react";
 import { Logincontext } from "../../context/usercontext";
+const List = React.lazy(() => import("../../components/list/List"));
 const apidata = "https://netflix-clone-without-adminpanel-api.vercel.app/list/";
 
 const Home = (type, acesstoken) => {
@@ -50,7 +51,9 @@ const Home = (type, acesstoken) => {
       <Navbar />
       <Featured type={type.type} genreis={newgenre} />
       {lists?.map((list, index) => (
-        <List list={list} key={index} />
+        <Suspense fallback={<p>This Is Loading...</p>} key={index}>
+          <List list={list} key={index} />
+        </Suspense>
       ))}
     </div>
   );

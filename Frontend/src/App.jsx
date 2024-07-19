@@ -16,7 +16,7 @@ const App = () => {
       <Routes>
         <Route
           path="/"
-          element={user ? <Home acesstoken={user?.acesstoken} /> : <Register />}
+          element={user ? <Home acesstoken={user?.acesstoken} /> : <Login />}
         />
 
         <Route
@@ -25,7 +25,7 @@ const App = () => {
             user ? (
               <Home type="Movie" acesstoken={user?.acesstoken} />
             ) : (
-              <Register />
+              <Login />
             )
           }
         />
@@ -36,16 +36,14 @@ const App = () => {
             user ? (
               <Home type="series" acesstoken={user?.acesstoken} />
             ) : (
-              <Register />
+              <Login />
             )
           }
         />
 
         <Route
           path="/watch"
-          element={
-            user ? <Watch acesstoken={user?.acesstoken} /> : <Register />
-          }
+          element={user ? <Watch acesstoken={user?.acesstoken} /> : <Login />}
         />
 
         <Route path="/register" element={<Register />} />

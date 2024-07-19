@@ -14,7 +14,6 @@ import { Logincontext } from "../../context/usercontext";
 
 export default function Listitems(item) {
   const movieid = item.item;
-  //  console.log(movieid);
   const [Movie, setMovie] = useState({});
   const [Movieimg, setMovieimg] = useState(null);
   const [Movietrailer, setMovietrailer] = useState("");
@@ -48,9 +47,6 @@ export default function Listitems(item) {
     };
     getlistitem();
   }, [item]);
-
-  // console.log(Movietrailer);
-  //  <video src={Movietrailer} autoPlay={true} loop />
 
   return (
     <Link to="/watch" state={{ movie: Movietrailer }}>

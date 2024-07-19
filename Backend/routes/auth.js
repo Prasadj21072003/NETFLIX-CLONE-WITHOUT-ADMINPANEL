@@ -44,13 +44,8 @@ router.post("/login", async (req, res) => {
 
     const { password, ...info } = user._doc;
 
-    res.json({ ...info, acesstoken });
-
     try {
-      /*   return res.cookie("jwttoken", acesstoken, {
-        maxAge: 432000000,
-        httpOnly: true,
-      }); */
+      res.json({ ...info, acesstoken });
     } catch (err) {
       console.log(`the error is ${err}`);
     }

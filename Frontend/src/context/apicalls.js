@@ -1,6 +1,5 @@
 import axios from "axios";
 import {
-  loginstart,
   loginsuccess,
   loginfailure,
   registersuccess,

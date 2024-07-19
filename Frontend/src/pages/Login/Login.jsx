@@ -1,8 +1,8 @@
 import "./Login.scss";
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import { loginuser } from "../../context/apicalls";
 import { Logincontext } from "../../context/usercontext";
-import { Link, useNavigate, Redirect } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 export default function Login() {
   const { dispatch } = useContext(Logincontext);
 
@@ -25,8 +25,6 @@ export default function Login() {
     loginuser(user, dispatch);
 
     navigate("/");
-
-    //window.location.reload();
   };
 
   return (
@@ -46,14 +44,14 @@ export default function Login() {
           <input
             type="email"
             className="email"
-            placeholder="Email or Phone Number"
+            placeholder="To Login Type:- random123@gmail.com"
             name="email"
             onChange={handlechange}
           />
           <input
             type="password"
             className="pass"
-            placeholder="Password"
+            placeholder="To Login Type:- random123"
             name="password"
             onChange={handlechange}
           />
