@@ -46,7 +46,7 @@ export default function Listitems(item) {
       }
     };
     getlistitem();
-  }, [item]);
+  }, [item, movieid, user?.acesstoken]);
 
   return (
     <Link to="/watch" state={{ movie: Movietrailer }}>

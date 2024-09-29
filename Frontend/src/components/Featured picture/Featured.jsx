@@ -3,21 +3,27 @@ import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import { collapseClasses } from "@mui/material";
+
 import { tokennotvalid } from "../../context/useractions";
 import { Logincontext } from "../../context/usercontext";
+import Useconversation from "../zustand/Useconversation";
 
 export default function Featured(props) {
   const [Movie, setMovie] = useState([]);
-  const [Movieimg, setMovieimg] = useState("");
 
   const [genre, setgenre] = useState(null);
+
   const { user } = useContext(Logincontext);
+
+  const { setloading } = Useconversation();
 
   useEffect(() => {
     props.genreis(genre);
-    // console.log(genre);
   }, [genre]);
+
+  useEffect(() => {
+    props.featuredmovie(Movie);
+  }, [Movie]);
 
   const selectgenre = (e) => {
     setgenre(e.target.value);
@@ -25,6 +31,7 @@ export default function Featured(props) {
 
   useEffect(() => {
     const getfeaturedmovie = async () => {
+      setloading(true);
       try {
         const res = await axios.get(
           `https://netflix-clone-without-adminpanel-api.vercel.app/Movie/${
@@ -36,13 +43,13 @@ export default function Featured(props) {
             },
           }
         );
-        // console.log(res.data);
+
         if (res.data === "Token is not valid") {
           tokennotvalid();
         } else {
           setMovie(res?.data[0]);
+          setloading(false);
         }
-        //  setMovieimg(res.data[0].img);
       } catch (error) {
         console.log(`the error is: ${error}`);
       }

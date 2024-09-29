@@ -1,6 +1,6 @@
 import "./register.scss";
 import React, { useContext, useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { registeruser } from "../../context/apicalls";
 import { Logincontext } from "../../context/usercontext";
 
@@ -9,10 +9,6 @@ export default function Register() {
 
   const { dispatch } = useContext(Logincontext);
   const [email, setemail] = useState("");
-  const [user, setuser] = useState({
-    username: "",
-    password: "",
-  });
 
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");

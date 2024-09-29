@@ -1,10 +1,11 @@
 import "./navbar.scss";
+
 import SearchIcon from "@mui/icons-material/Search";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useState } from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { logoutuser } from "../../context/apicalls";
 import { useContext } from "react";
 import { Logincontext } from "../../context/usercontext";
