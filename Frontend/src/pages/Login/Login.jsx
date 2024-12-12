@@ -45,7 +45,7 @@ export default function Login() {
             type="email"
             className="email"
             placeholder="To Login Type:- random123@gmail.com"
-            value="random123@gmail.com"
+          
             name="email"
             onChange={handlechange}
           />
@@ -53,7 +53,7 @@ export default function Login() {
             type="password"
             className="pass"
             placeholder="To Login Type:- random123"
-            value="random123"
+          
             name="password"
             onChange={handlechange}
           />
